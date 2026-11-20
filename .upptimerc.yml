@@ -43,7 +43,10 @@ status-website:
     - title: Live Website
       href: https://samplerealm.com
   # SampleRealm theme lives in assets/samplerealm.css (deployed to the site root).
-  themeUrl: /samplerealm.css
+  # Must be absolute: the build's crawler follows same-host <link>s and, finding no
+  # /samplerealm.css yet, creates samplerealm.css/ as a 404 folder, which then breaks
+  # copying assets/ in (EISDIR). Locally, dev-config.js swaps it to localhost.
+  themeUrl: https://status.samplerealm.com/samplerealm.css
 
 i18n:
   # Raw HTML so the link opens in a new tab (markdown links can't). The footer is run

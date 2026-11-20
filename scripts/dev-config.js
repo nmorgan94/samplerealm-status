@@ -57,15 +57,17 @@ function linkAssets() {
   }
 }
 
-// pre-process sets path to https://status.samplerealm.com (from cname), which every
-// link is built from. Point it at localhost so navigation stays on the local site.
+// pre-process sets path to https://<cname>, which every link is built from, and
+// themeUrl is absolute too. Swap the live origin for localhost everywhere so
+// navigation and the theme stay on the local site.
 function generate() {
   linkAssets();
   execSync("npm run --silent pre-process", { cwd: statusPage, stdio: "inherit" });
   const file = path.join(statusPage, "src", "data", "config.json");
-  const config = JSON.parse(fs.readFileSync(file, "utf8"));
-  config.path = `http://localhost:${port}`; // must match dev.sh's sapper --port
-  fs.writeFileSync(file, JSON.stringify(config));
+  const json = fs.readFileSync(file, "utf8");
+  const { cname } = JSON.parse(json)["status-website"];
+  // must match dev.sh's sapper --port
+  fs.writeFileSync(file, json.replaceAll(`https://${cname}`, `http://localhost:${port}`));
 }
 
 if (!process.argv.includes("--watch")) {

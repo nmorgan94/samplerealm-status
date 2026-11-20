@@ -1,7 +1,7 @@
 url: https://samplerealm.com/api/health?check=installers
-status: down
-code: 404
-responseTime: 522
-lastUpdated: 2026-11-20T12:04:26.523Z
+status: up
+code: 200
+responseTime: 127
+lastUpdated: 2026-11-20T12:06:47.603Z
 startTime: 2026-11-20T12:04:13.035Z
 generator: Upptime <https://github.com/upptime/upptime>

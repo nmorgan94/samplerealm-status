@@ -22,19 +22,19 @@
     "url": "https://samplerealm.com/api/health?check=catalogue",
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "plugin-catalogue",
-    "status": "down",
-    "uptime": "25.51%",
-    "uptimeDay": "25.51%",
-    "uptimeWeek": "25.51%",
-    "uptimeMonth": "25.51%",
-    "uptimeYear": "25.51%",
-    "time": 524,
-    "timeDay": 524,
-    "timeWeek": 524,
-    "timeMonth": 524,
-    "timeYear": 524,
+    "status": "up",
+    "uptime": "14.36%",
+    "uptimeDay": "14.36%",
+    "uptimeWeek": "14.36%",
+    "uptimeMonth": "14.36%",
+    "uptimeYear": "14.36%",
+    "time": 1061,
+    "timeDay": 1061,
+    "timeWeek": 1061,
+    "timeMonth": 1061,
+    "timeYear": 1061,
     "dailyMinutesDown": {
-      "2026-11-20": 1
+      "2026-11-20": 3
     }
   },
   {
@@ -42,19 +42,19 @@
     "url": "https://samplerealm.com/api/health?check=installers",
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "installer-downloads",
-    "status": "down",
-    "uptime": "32.16%",
-    "uptimeDay": "32.16%",
-    "uptimeWeek": "32.16%",
-    "uptimeMonth": "32.16%",
-    "uptimeYear": "32.16%",
-    "time": 522,
-    "timeDay": 522,
-    "timeWeek": 522,
-    "timeMonth": 522,
-    "timeYear": 522,
+    "status": "up",
+    "uptime": "13.74%",
+    "uptimeDay": "13.74%",
+    "uptimeWeek": "13.74%",
+    "uptimeMonth": "13.74%",
+    "uptimeYear": "13.74%",
+    "time": 325,
+    "timeDay": 325,
+    "timeWeek": 325,
+    "timeMonth": 325,
+    "timeYear": 325,
     "dailyMinutesDown": {
-      "2026-11-20": 0
+      "2026-11-20": 2
     }
   },
   {
@@ -62,19 +62,19 @@
     "url": "https://samplerealm.com/api/health?check=licences",
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "licence-activation",
-    "status": "down",
-    "uptime": "56.60%",
-    "uptimeDay": "56.60%",
-    "uptimeWeek": "56.60%",
-    "uptimeMonth": "56.60%",
-    "uptimeYear": "56.60%",
-    "time": 945,
-    "timeDay": 945,
-    "timeWeek": 945,
-    "timeMonth": 945,
-    "timeYear": 945,
+    "status": "up",
+    "uptime": "12.55%",
+    "uptimeDay": "12.55%",
+    "uptimeWeek": "12.55%",
+    "uptimeMonth": "12.55%",
+    "uptimeYear": "12.55%",
+    "time": 610,
+    "timeDay": 610,
+    "timeWeek": 610,
+    "timeMonth": 610,
+    "timeYear": 610,
     "dailyMinutesDown": {
-      "2026-11-20": 0
+      "2026-11-20": 2
     }
   }
 ]

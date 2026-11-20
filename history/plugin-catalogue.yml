@@ -1,7 +1,7 @@
 url: https://samplerealm.com/api/health?check=catalogue
-status: down
-code: 404
-responseTime: 524
-lastUpdated: 2026-11-20T12:04:10.009Z
+status: up
+code: 200
+responseTime: 1597
+lastUpdated: 2026-11-20T12:06:43.985Z
 startTime: 2026-11-20T12:03:56.003Z
 generator: Upptime <https://github.com/upptime/upptime>

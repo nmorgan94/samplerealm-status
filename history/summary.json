@@ -23,19 +23,17 @@
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "plugin-catalogue",
     "status": "up",
-    "uptime": "14.36%",
-    "uptimeDay": "14.36%",
-    "uptimeWeek": "14.36%",
-    "uptimeMonth": "14.36%",
-    "uptimeYear": "14.36%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 1061,
     "timeDay": 1061,
     "timeWeek": 1061,
     "timeMonth": 1061,
     "timeYear": 1061,
-    "dailyMinutesDown": {
-      "2026-11-20": 3
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Installer downloads",
@@ -43,19 +41,17 @@
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "installer-downloads",
     "status": "up",
-    "uptime": "13.74%",
-    "uptimeDay": "13.74%",
-    "uptimeWeek": "13.74%",
-    "uptimeMonth": "13.74%",
-    "uptimeYear": "13.74%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 325,
     "timeDay": 325,
     "timeWeek": 325,
     "timeMonth": 325,
     "timeYear": 325,
-    "dailyMinutesDown": {
-      "2026-11-20": 2
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Licence activation",
@@ -63,18 +59,16 @@
     "icon": "https://icons.duckduckgo.com/ip3/samplerealm.com.ico",
     "slug": "licence-activation",
     "status": "up",
-    "uptime": "12.55%",
-    "uptimeDay": "12.55%",
-    "uptimeWeek": "12.55%",
-    "uptimeMonth": "12.55%",
-    "uptimeYear": "12.55%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 610,
     "timeDay": 610,
     "timeWeek": 610,
     "timeMonth": 610,
     "timeYear": 610,
-    "dailyMinutesDown": {
-      "2026-11-20": 2
-    }
+    "dailyMinutesDown": {}
   }
 ]

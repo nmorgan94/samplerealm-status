@@ -4,6 +4,10 @@ repo: samplerealm-status
 secrets:
   - HEALTH_TOKEN
 
+# Assigned to every downtime issue. Only sends a notification once the GitHub App opens issues (not GH_PAT).
+assignees:
+  - nmorgan94
+
 sites:
   - name: Website
     url: https://samplerealm.com
@@ -23,14 +27,27 @@ sites:
 workflowSchedule:
   uptime: "*/5 * * * *"
 
+# History-page response-time chart colours (SampleRealm purple)
+graphBackgroundColor: "rgba(168, 85, 247, 0.3)"
+graphBorderColor: "#c084fc"
+
 status-website:
   cname: status.samplerealm.com
   name: SampleRealm Status
   logoUrl: https://samplerealm.com/images/sample-realm-icon.png
+  favicon: https://samplerealm.com/images/sample-realm-icon.png
+  faviconSvg: https://samplerealm.com/icon.svg
   introTitle: "SampleRealm services"
   introMessage: Live status of samplerealm.com, plugin downloads and licence activation.
   navbar:
-    - title: Status
-      href: /
-    - title: SampleRealm
+    - title: Live Website
       href: https://samplerealm.com
+  # SampleRealm theme lives in assets/samplerealm.css (deployed to the site root).
+  themeUrl: /samplerealm.css
+
+i18n:
+  # Raw HTML so the link opens in a new tab (markdown links can't). The footer is run
+  # through snarkdown, which would turn "_blank" into italics, hence &#95; for the "_".
+  footer: 'Status powered by <a href="https://upptime.js.org" target="&#95;blank" rel="noopener">Upptime</a>.'
+  # Also hardcoded in samplerealm.css's banner redraw; keep the two in sync.
+  allSystemsOperational: All systems operational

@@ -1,0 +1,200 @@
+/*
+ * SampleRealm theme for the Upptime status page.
+ * Matches samplerealm.com: slate/purple gradient, purple accents, Inter + Space Grotesk.
+ *
+ * Loaded via `themeUrl` in .upptimerc.yml. The deploy copies assets/* to the site root,
+ * so this is served at /samplerealm.css.
+ *
+ * This file loads BEFORE Upptime's global.css, so rules that global.css also sets are
+ * prefixed with `html` to win on specificity.
+ */
+
+/* Self-hosted fonts (no Google Fonts requests, for GDPR). Latin subsets copied from
+   samplerealm.com's next/font output; both are variable fonts covering all weights. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/space-grotesk-latin.woff2") format("woff2");
+}
+
+:root {
+  --sr-purple-200: #e9d5ff;
+  --sr-purple-300: #d8b4fe;
+  --sr-purple-400: #c084fc;
+  --sr-purple-600: #9333ea;
+  --sr-pink-600: #db2777;
+  --sr-gray-300: #d1d5db;
+  --sr-gray-400: #9ca3af;
+  --sr-border: rgba(168, 85, 247, 0.2);
+  --sr-button-gradient: linear-gradient(to right, var(--sr-purple-600), var(--sr-pink-600));
+  --sr-display-font: "Space Grotesk", Arial, Helvetica, sans-serif;
+
+  /* Upptime theme variables */
+  --body-background-color: #0f172a;
+  --body-text-color: #ffffff;
+  --card-background-color: rgba(255, 255, 255, 0.05);
+  --card-border-color: var(--sr-border);
+  --nav-background-color: rgba(0, 0, 0, 0.3);
+  --nav-border-bottom-color: var(--sr-border);
+  --nav-current-border-bottom-color: var(--sr-purple-400);
+  --up-border-left-color: #34d399;
+  --degraded-border-left-color: #fbbf24;
+  --down-border-left-color: #f43f5e;
+  --down-background-color: rgba(244, 63, 94, 0.15);
+  --tag-color: #0f172a;
+  --tag-up-background-color: #34d399;
+  --tag-degraded-background-color: #fbbf24;
+  --tag-down-background-color: #f43f5e;
+  --change-background-color: rgba(168, 85, 247, 0.4);
+  --error-button-border-color: transparent;
+  --error-button-background-color: var(--sr-button-gradient);
+  --error-button-color: #ffffff;
+  --submit-button-border-color: transparent;
+  --submit-button-background-color: var(--sr-button-gradient);
+  --submit-button-color: #ffffff;
+  --code-color: var(--sr-purple-200);
+  --code-background-color: rgba(0, 0, 0, 0.3);
+}
+
+html body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 0;
+  -webkit-font-smoothing: antialiased;
+}
+/* Page gradient on its own fixed layer: stays put while scrolling, like
+   `background-attachment: fixed`, without repainting the page every frame. */
+html body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom right, var(--body-background-color), #581c87, var(--body-background-color));
+}
+
+html h1, html h2, html h3, html h4, html h5, html h6, html nav .logo {
+  font-family: var(--sr-display-font);
+}
+html h1, html h2 { font-weight: 700; }
+html h3 { opacity: 1; color: var(--sr-purple-300); }
+html p { color: var(--sr-gray-300); }
+html a { color: var(--sr-purple-300); }
+
+/* Nav */
+html nav a { color: var(--sr-gray-300); transition: color 0.15s; }
+html nav a:hover, html nav a[aria-current], html nav .logo { color: #ffffff; }
+html nav .logo img { border-radius: 0.5rem; }
+
+/* Cards */
+html article {
+  border-radius: 0.75rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+html article a { color: #ffffff; }
+html article.link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+html article div { color: var(--sr-gray-300); }
+html article .data { color: #ffffff; font-weight: 600; }
+
+/* "All systems operational" banner. Upptime hardcodes "✅ &nbsp; <text>" with no
+   wrapper elements, so hide the original text (font-size: 0) and redraw it: a tick
+   badge with a pulsing ring (::before) and the message (::after). The `/ ""` alt
+   text keeps screen readers from reading the message twice. It's the only article
+   directly after the intro <header>, so this selector doesn't touch the status cards. */
+html header + article.up {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 0;
+}
+html header + article.up::before {
+  content: "";
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%2334d399'/%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%230f172a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: sr-pulse 2.4s ease-out infinite;
+}
+html header + article.up::after {
+  /* Keep in sync with i18n.allSystemsOperational in .upptimerc.yml (screen readers get that) */
+  content: "All systems operational"; /* fallback for browsers without alt-text syntax */
+  content: "All systems operational" / "";
+  font-family: var(--sr-display-font);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+@keyframes sr-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70% { box-shadow: 0 0 0 0.6rem rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html header + article.up::before { animation: none; }
+}
+
+/* Response-time graphs are teal PNGs set as the card background; move them to a
+   pseudo-element so they can be recoloured purple without affecting the text. */
+html article.graph {
+  background-image: none !important;
+  isolation: isolate;
+}
+html article.graph::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--background) center right / contain no-repeat;
+  filter: hue-rotate(100deg) saturate(1.4);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* 24h / 7d / 30d range selector */
+html label { color: var(--sr-gray-300); cursor: pointer; }
+html input:checked + label { color: var(--sr-purple-300); }
+/* Only offer 24h / 7d / 30d: hide the 1y and all options */
+html label[for="data_year"], html label[for="data_all"] { display: none; }
+
+/* Buttons: error/submit buttons get the gradient via the variables above; plain
+   <button>s (e.g. "Remove token") have no Upptime variable, so set them here. */
+html a.error-button, html .submit-button, html button { border-radius: 0.5rem; }
+html button {
+  background: var(--submit-button-background-color);
+  color: var(--submit-button-color);
+}
+
+/* Footer: Upptime's site footer (the one right after <main>; footers inside main,
+   like the incident page's back link, are left alone). Text is i18n.footer. */
+html main.container + footer {
+  padding: 1rem;
+  border-top: 1px solid var(--sr-border);
+  background: var(--nav-background-color);
+  opacity: 1;
+}
+html main.container + footer p {
+  margin: 0;
+  color: var(--sr-gray-400);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+}
+html main.container + footer a {
+  color: var(--sr-gray-300);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+html main.container + footer a:hover { color: #ffffff; }

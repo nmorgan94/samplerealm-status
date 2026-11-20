@@ -15,6 +15,9 @@ export PORT="${PORT:-3000}"
 
 if [ ! -d status-page ]; then
   git clone --depth 1 https://github.com/upptime/status-page status-page
+  # Drop its history so VS Code doesn't list it as a second repo in Source Control.
+  # To update it later, delete status-page/ and rerun.
+  rm -rf status-page/.git
 fi
 
 (cd status-page && { [ -d node_modules ] || npm install; })

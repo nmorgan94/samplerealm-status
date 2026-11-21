@@ -25,7 +25,8 @@ sites:
       - "X-Health-Token: $HEALTH_TOKEN"
 
 workflowSchedule:
-  uptime: "*/5 * * * *"
+  # Every 15 min, off :00/:30. GitHub delays and drops busy schedules (*/5 ran ~every 5h).
+  uptime: "7,22,37,52 * * * *"
 
 # History-page response-time chart colours (SampleRealm purple)
 graphBackgroundColor: "rgba(168, 85, 247, 0.3)"
